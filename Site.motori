@@ -1,0 +1,83 @@
+import React from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function MotoriLanding() {
+  return (
+    <div className="bg-black text-white font-sans">
+      <header className="bg-zinc-900 py-6 text-center shadow-md">
+        <h1 className="text-4xl font-bold text-red-500">MOTORI</h1>
+      </header>
+
+      <section className="relative bg-cover bg-center text-center py-20 px-6" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1605902711622-cfb43c4437f3)' }}>
+        <div className="bg-black bg-opacity-60 p-6 rounded-xl inline-block">
+          <h2 className="text-3xl mb-4">Paixão por carros, excelência em serviços</h2>
+          <p className="max-w-xl mx-auto">Na MOTORI, oferecemos soluções mecânicas completas com agilidade, transparência e qualidade profissional.</p>
+        </div>
+      </section>
+
+      <section className="bg-zinc-800 py-16 px-6 text-center">
+        <h3 className="text-2xl mb-8">Serviços</h3>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {["Revisão completa", "Troca de óleo", "Freios e suspensão", "Injeção eletrônica", "Instalação de som automotivo", "Alarmes e acessórios"].map((servico, idx) => (
+            <Card key={idx} className="bg-zinc-700 p-6 rounded-2xl shadow-lg">
+              <h4 className="text-xl text-red-500 mb-2">{servico}</h4>
+              <p className="text-sm text-zinc-300">{servico === "Injeção eletrônica"
+                ? "Diagnóstico e manutenção dos sistemas de injeção para melhor desempenho."
+                : servico === "Revisão completa"
+                ? "Revisamos todos os sistemas do seu veículo para garantir máxima segurança."
+                : servico === "Troca de óleo"
+                ? "Serviço rápido com lubrificantes de alta qualidade."
+                : servico === "Freios e suspensão"
+                ? "Manutenção preventiva e corretiva para conforto e segurança."
+                : servico === "Instalação de som automotivo"
+                ? "Sistema de áudio de alta performance e integração."
+                : "Soluções completas para segurança e personalização."}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-zinc-900 py-16 px-6 text-center">
+        <h3 className="text-2xl mb-6">O que nossos clientes dizem</h3>
+        <div className="space-y-6 max-w-2xl mx-auto">
+          {[
+            { nome: "João M.", foto: "https://randomuser.me/api/portraits/men/31.jpg", depoimento: "Atendimento excelente e serviço de primeira!" },
+            { nome: "Ana C.", foto: "https://randomuser.me/api/portraits/women/44.jpg", depoimento: "Resolvi todos os problemas do meu carro com a Motori. Recomendo!" },
+            { nome: "Carlos S.", foto: "https://randomuser.me/api/portraits/men/54.jpg", depoimento: "Equipe honesta, rápida e eficiente. Já virei cliente fiel." },
+          ].map((cli, idx) => (
+            <div key={idx} className="bg-zinc-800 p-6 rounded-xl flex items-center gap-4 shadow">
+              <img src={cli.foto} alt={cli.nome} className="w-14 h-14 rounded-full object-cover" />
+              <span className="text-zinc-300 italic">"{cli.depoimento}" - {cli.nome}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-zinc-800 py-16 px-6 text-center">
+        <h3 className="text-2xl mb-6">Fale com a gente</h3>
+        <a href="https://wa.me/5511991243792" target="_blank" rel="noopener noreferrer">
+          <Button className="bg-green-500 text-white px-6 py-3 text-lg rounded-full hover:bg-green-600 transition">Chamar no WhatsApp</Button>
+        </a>
+      </section>
+
+      <section className="bg-zinc-900 py-16 px-6 text-center">
+        <h3 className="text-2xl mb-6">Onde estamos</h3>
+        <p className="mb-4">Rua Newton Espírito Santo Aires, 27 - CEP 06056-390 - Osasco SP</p>
+        <iframe
+          className="mx-auto w-full max-w-xl h-96 rounded-xl shadow"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.024992109165!2d-46.80034782495781!3d-23.603002063495193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cefd7a2c5bbef3%3A0x36ecffda205da80f!2sR.%20Newton%20Esp%C3%ADrito%20Santo%20Aires%2C%2027%20-%20Km%2018%2C%20Osasco%20-%20SP%2C%2006056-390!5e0!3m2!1spt-BR!2sbr!4v1713892050000!5m2!1spt-BR!2sbr"
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+
+      <footer className="bg-black py-6 text-center text-sm text-zinc-400">
+        &copy; 2025 MOTORI Oficina Mecânica. Todos os direitos reservados.
+      </footer>
+    </div>
+  );
+}
